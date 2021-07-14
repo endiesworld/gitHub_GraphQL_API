@@ -33,7 +33,7 @@ const options = {
     method: "post",
     headers: {
         "content-type": "application/json",
-        authorization: "bearer " + process.env.APIKEY 
+        authorization: "bearer " + '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'
     },
     body: JSON.stringify({ query: query }),
 }
