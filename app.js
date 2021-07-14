@@ -1,7 +1,10 @@
 const express = require("express"); 
 const fetch = require("node-fetch") ;
 
+
 const app = express() ;
+const PORT = process.env.PORT || 3000 ;
+require('dotenv').config() ;
 
 app.use(express.static("public"));
 
@@ -30,7 +33,7 @@ const options = {
     method: "post",
     headers: {
         "content-type": "application/json",
-        authorization: "bearer " + process.env.APIKEY,
+        authorization: "bearer " + process.env.APIKEY 
     },
     body: JSON.stringify({ query: query }),
 }
@@ -46,4 +49,4 @@ app.get("/data", async (req, res) => {
     res.json(data);
 })
 
-app.listen(3000, () => console.log("Server ready"))
+app.listen(PORT)
