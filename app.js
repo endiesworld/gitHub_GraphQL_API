@@ -1,14 +1,14 @@
-const express = require("express"); 
-const fetch = require("node-fetch") ;
+const express = require("express");
+const fetch = require("node-fetch");
 
 
-const app = express() ;
-const PORT = process.env.PORT || 3000 ;
-require('dotenv').config() ;
+const app = express();
+const PORT = process.env.PORT || 3000;
+require('dotenv').config();
 
 app.use(express.static("public"));
 
-const url = "https://api.github.com/graphql" ;
+const url = "https://api.github.com/graphql";
 const query = ` {
     search(query: "stars:>50000", type: REPOSITORY, first: 10) {
         repositoryCount
@@ -30,10 +30,11 @@ const query = ` {
   ` ;
 
 const options = {
+
     method: "post",
     headers: {
         "content-type": "application/json",
-        authorization: "bearer " + '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'
+        authorization: "bearer " + process.env.APIKEY
     },
     body: JSON.stringify({ query: query }),
 }
@@ -45,7 +46,7 @@ app.get("/data", async (req, res) => {
     } catch (error) {
         console.error(error)
     }
-    const data = await response.json() ;
+    const data = await response.json();
     res.json(data);
 })
 

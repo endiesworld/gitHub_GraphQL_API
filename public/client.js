@@ -6,13 +6,13 @@ document.addEventListener("DOMContentLoaded", async () => {
         "beforeend",
         `
             <tr>
-            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 font-medium text-gray-900">
+            <td class="px-6 border-b py-4 whitespace-no-wrap font-black border-indigo-800 text-sm leading-5 font-medium text-white">
                 ${item.node.owner.login}
             </td>
-            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+            <td class="px-6 border-b py-4 whitespace-no-wrap border-indigo-800 text-sm leading-5 text-white">
                 ${item.node.name}
             </td>
-            <td class="px-6 py-4 whitespace-no-wrap border-b border-gray-200 text-sm leading-5 text-gray-500">
+            <td class="px-6 border-b py-4 whitespace-no-wrap border-indigo-800 text-sm leading-5 text-white">
                 ${item.node.stargazers.totalCount}
             </td>
             </tr>
